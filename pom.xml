@@ -6,6 +6,7 @@
 
     <groupId>com.bikepool</groupId>
     <artifactId>bikepool-web</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>Bike Pool Web</name>
     <url>http://maven.apache.org</url>
