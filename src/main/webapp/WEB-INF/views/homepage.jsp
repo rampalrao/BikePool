@@ -6,6 +6,10 @@
 <body>
 <h2>
 Welcome to Bike Pool
+<br>
+<a href="/bikepool/join">Join Bike Pool</a>
+<br>
+<a href="/bikepool/share">Bike Share</a>
 </h2>
 </body>
 </html>
