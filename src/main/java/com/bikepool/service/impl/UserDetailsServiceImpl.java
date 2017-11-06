@@ -27,6 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private BikeUserDao bikeUserDao;
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
         logger.info("loadUserByUsername username=" + username);
         //cal Dao to get user details

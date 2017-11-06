@@ -18,7 +18,7 @@ public class BikeUserDaoImpl implements BikeUserDao {
 
     @Override
     public BikeUser getBikeUser(String username) {
-        Query query = sessionFactory.getCurrentSession().createQuery("from BikeUser where name = :username");
+        Query query = sessionFactory.getCurrentSession().createQuery("from BikeUser where email = :username");
         query.setParameter("username", username);
         return (BikeUser)query.uniqueResult();
     }
