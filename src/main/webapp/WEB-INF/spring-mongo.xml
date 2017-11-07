@@ -1,0 +1,23 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	   xmlns="http://www.springframework.org/schema/beans"
+	   xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- To translate any MongoExceptions thrown in @Repository annotated classes -->
+	<context:annotation-config />
+
+	<mongo:mongo replica-set="${mongoBikePoolApi.replicaset}" id="mongoBikePoolApi">
+		<mongo:options auto-connect-retry="true" connections-per-host="40" slave-ok="true"/>
+	</mongo:mongo>
+	
+	<mongo:db-factory dbname="bikePoolApidb" mongo-ref="mongoBikePoolApi"
+		id="mongoDbFactoryApi" />
+	
+	<bean id="mongoTemplateBikePool" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactoryApi" />
+	</bean>
+
+</beans>
