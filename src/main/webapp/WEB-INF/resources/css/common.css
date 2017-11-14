@@ -1,0 +1,64 @@
+body {
+  background-image: url("../images/bg.jpg");
+  overflow-x: hidden;
+}
+.share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+td {
+    height: 40px;
+    vertical-align: top;
+}
+.text-view {
+color: blue;
+}
+.language{
+text-align:right;
+}
+.adminView{
+text-align:center;
+}
+.wrapper {
+padding-top: 0cm;
+padding-left: 4cm;
+     width: 1005px;
+     margin: 0 auto;
+}
+
+.my-address {
+    float: left;
+    min-height: 300px;
+    width: 200px;
+}
+
+.registration-form {
+    float: left;
+     width: 350px;
+}
+.contact-me{
+    float: left;
+     width: 350px;
+}
+
+.count-view{
+padding-left: 1cm;
+float: left;
+}
+.success-msg{
+text-align:center;
+color: green;
+}
+
+.welcome-text{
+text-align:center;
+color: blue;
+}
+.about-detail{
+text-align: justify;
+text-justify: inter-word;
+ font-size: 120%;
+}
