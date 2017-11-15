@@ -1,6 +1,7 @@
 package com.bikepool.dao.impl;
 
 import com.bikepool.dao.IBikePoolMao;
+import com.bikepool.dto.BikeShareUserModel;
 import com.bikepool.dto.CityDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,7 @@ public class BikePoolMaoImpl implements IBikePoolMao {
     @Autowired
     @Qualifier("mongoTemplateBikePool")
     private MongoOperations mongoOperations;
+
     @Override
     public CityDTO getCities() {
 
@@ -31,6 +33,19 @@ public class BikePoolMaoImpl implements IBikePoolMao {
         List<CityDTO> list = mongoOperations.findAll(CityDTO.class);
         if (list != null && list.isEmpty()) {
             return new CityDTO();
+        }
+        return list.get(0);
+    }
+
+    @Override
+    public BikeShareUserModel getBikeShareUsers() {
+
+        if (!mongoOperations.collectionExists(BikeShareUserModel.class)) {
+            return null;
+        }
+        List<BikeShareUserModel> list = mongoOperations.findAll(BikeShareUserModel.class);
+        if (list != null && list.isEmpty()) {
+            return new BikeShareUserModel();
         }
         return list.get(0);
     }

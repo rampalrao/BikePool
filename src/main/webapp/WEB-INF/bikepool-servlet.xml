@@ -11,7 +11,7 @@
 
     <annotation-driven/>
     <context:component-scan base-package="com.bikepool"/>
-    <resources mapping="/resources/**" location="/WEB-INF/resources/" />
+    <resources mapping="/resources/**" location="/WEB-INF/static/" />
 
     <beans:bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -24,8 +24,16 @@
         <beans:property name="systemPropertiesMode" value="2" />
         <beans:property name="locations">
             <beans:list>
-                <beans:value>WEB-INF/resources/bikepool.properties</beans:value>
+                <beans:value>classpath:bikepool.properties</beans:value>
             </beans:list>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="bikeShareProperties" class="com.bikepool.properties.BikeShareProperties">
+        <beans:property name="properties">
+            <beans:bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <beans:property name="location" value="classpath:bikepool.properties"/>
+            </beans:bean>
         </beans:property>
     </beans:bean>
 

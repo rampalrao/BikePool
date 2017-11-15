@@ -1,5 +1,6 @@
 package com.bikepool.dao;
 
+import com.bikepool.dto.BikeShareUserModel;
 import com.bikepool.dto.CityDTO;
 
 /**
@@ -7,4 +8,5 @@ import com.bikepool.dto.CityDTO;
  */
 public interface IBikePoolMao {
     CityDTO getCities();
+    BikeShareUserModel getBikeShareUsers();
 }

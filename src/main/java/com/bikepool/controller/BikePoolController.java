@@ -1,5 +1,8 @@
 package com.bikepool.controller;
 
+import com.bikepool.cache.BikeShareUserCache;
+import com.bikepool.cache.CacheManager;
+import com.bikepool.dto.BikeShareUser;
 import com.bikepool.service.BikePoolService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,5 +34,15 @@ public class BikePoolController {
     public List<String> getCities() {
         logger.info("Getting city list...");
         return bikePoolService.getCities();
+    }
+
+    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/service/getAllBikeShares")
+    @GET
+    @ResponseBody
+    public List<BikeShareUser> getAllBikeShares() {
+        logger.info("Getting BikeShare list...");
+        BikeShareUserCache cache=CacheManager.getInstance().getCache(BikeShareUserCache.class);
+        return cache.getShareUser();
     }
 }
