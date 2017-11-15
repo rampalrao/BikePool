@@ -23,6 +23,7 @@ public class BikeShareContextListener implements ServletContextListener {
         WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(sce.getServletContext());
         loadAerospikeClient(context);
         loadCache(context);
+        sce.getServletContext().setAttribute("contextInitialized", "true");
         LOG.info("Context initialized event completed...");
     }
 
